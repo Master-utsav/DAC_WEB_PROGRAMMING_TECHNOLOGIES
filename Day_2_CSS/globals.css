@@ -1,0 +1,291 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.question-section {
+    margin-bottom: 40px;
+}
+
+hr {
+    margin: 40px 0;
+    border: 0;
+    border-top: 2px solid #ccc;
+}
+
+/* Styles for Q1 */
+.q1-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.q1-table th,
+.q1-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.q1-bg-light {
+    background-color: #f9f9f9;
+}
+
+.q1-text-right {
+    text-align: right;
+}
+
+/* Styles for Q2 */
+.q2-table {
+    width: 450px;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background: white;
+}
+
+.q2-table th,
+.q2-table td {
+    border: 2px solid #333;
+    padding: 8px;
+}
+
+.q2-table th {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.q2-textarea {
+    width: 95%;
+    height: 80px;
+}
+
+/* Styles for Q3 */
+.q3-container {
+    background-color: #2b90d9;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.q3-box {
+    border: 2px solid white;
+    padding: 20px 40px;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.q3-btn {
+    background-color: white;
+    color: #2b90d9;
+    border: none;
+    padding: 10px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+/* Styles for Q4 */
+.q4-container {
+    background-color: #0088cc;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.q4-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.q4-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.q4-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.q4-btn {
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Styles for Q5 */
+.q5-container {
+    background-color: #7bc054;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.q5-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 3px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    width: 300px;
+    text-align: center;
+}
+
+.q5-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background-color: #f2f2f2;
+    border: none;
+    box-sizing: border-box;
+}
+
+.q5-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/* Styles for Q6 */
+.q6-container {
+    background-color: #0099e6;
+    color: white;
+    padding: 40px 20px;
+    border-radius: 8px;
+}
+
+.q6-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.q6-pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.q6-card {
+    background: white;
+    color: #333;
+    border-radius: 8px;
+    padding: 30px 20px;
+    width: 260px;
+    text-align: center;
+}
+
+.q6-price {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.q6-features {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+.q6-features li {
+    padding: 6px 0;
+    color: #555;
+}
+
+.q6-features li.strike {
+    text-decoration: line-through;
+    color: #bbb;
+}
+
+.q6-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 0;
+    width: 100%;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Styles for Q7 */
+.q7-container {
+    height: 400px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img2.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.q7-btn {
+    background-color: #64a19d;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Styles for Q8 */
+.q8-container {
+    background-color: white;
+    padding: 25px;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.q8-form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.q8-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.q8-form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.q8-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
