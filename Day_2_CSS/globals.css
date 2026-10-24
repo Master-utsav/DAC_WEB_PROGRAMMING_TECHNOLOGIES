@@ -197,9 +197,23 @@ hr {
 }
 
 .q6-price {
+    position: relative;
     font-size: 2.2rem;
     font-weight: bold;
     margin: 15px 0;
+}
+
+.q6-price::after {
+    content:"";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    height:5px;
+    width:50px;
+    border-radius:12%;
+    background-color:#0099e6;
+    color:#0099e6;
 }
 
 .q6-features {
