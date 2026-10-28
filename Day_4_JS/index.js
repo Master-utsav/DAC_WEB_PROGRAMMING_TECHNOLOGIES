@@ -1,6 +1,3 @@
-/* ==========================================================================
-   SECTION A
-   ========================================================================== */
 
 // Q1. Calculator
 function calculate(operator) {
@@ -31,10 +28,10 @@ function calculate(operator) {
 }
 
 // Q2. Friends List using DOM
+const input = document.getElementById('friendNameInput');
 function addFriend() {
-    const input = document.getElementById('friendNameInput');
     const name = input.value.trim();
-
+    
     if (name === "") {
         alert("Please enter a friend's name.");
         return;
@@ -47,8 +44,14 @@ function addFriend() {
 
     input.value = "";
 }
+input.addEventListener("keypress", (e) => {
+    if(e.key === "Enter"){
+        addFriend();
+    }
+})
 
-// Q3 (COMPULSORY). Take 3 Movies Details & Show in Table
+
+// Q3 Take 3 Movies Details & Show in Table
 const secAMovies = [];
 
 function addSecAMovie() {
@@ -59,7 +62,11 @@ function addSecAMovie() {
     const name = nameInput.value.trim();
     const price = priceInput.value.trim();
     const seat = seatInput.value.trim();
-
+   
+    if (!(/^\d+(\.\d{1,2})?$/.test(price))) {
+        alert("Price must be a valid number (e.g., 15 or 15.99)");
+        return;
+    }
     if (!name || !price || !seat) {
         alert("Please fill all movie fields.");
         return;
@@ -67,7 +74,6 @@ function addSecAMovie() {
 
     secAMovies.push({ name, price, seat });
 
-    // Render Table
     const tbody = document.querySelector('#secAMovieTable tbody');
     tbody.innerHTML = secAMovies.map(m => `
         <tr>
@@ -87,12 +93,7 @@ function addSecAMovie() {
     }
 }
 
-
-/* ==========================================================================
-   SECTION B (COMPULSORY)
-   ========================================================================== */
-
-// Q1 (COMPULSORY). Movie Validation Form
+// Q1 Movie Validation Form
 function handleMovieValSubmit(event) {
     event.preventDefault();
 
@@ -101,13 +102,13 @@ function handleMovieValSubmit(event) {
     const release = document.getElementById('valRelease').value;
     const showTime = document.getElementById('valShowTime').value;
 
-    // Validation a: Movie Name must be at least 5 characters
+    // Validation Movie Name must be at least 5 characters
     if (movieName.length < 5) {
         alert("Validation Error: Movie Name must be at least 5 characters long.");
         return;
     }
 
-    // Validation b: Actor name must be at least 3 characters
+    // Validation Actor name must be at least 3 characters
     if (actor.length < 3) {
         alert("Validation Error: Actor name must be at least 3 characters long.");
         return;
@@ -122,11 +123,9 @@ function handleMovieValSubmit(event) {
         return;
     }
 
-    // Radio button value (Language)
     const langNode = document.querySelector('input[name="language"]:checked');
     const language = langNode ? langNode.value : '';
 
-    // Add to table
     const tbody = document.querySelector('#validatedMovieTable tbody');
     const row = document.createElement('tr');
     row.innerHTML = `
@@ -143,12 +142,12 @@ function handleMovieValSubmit(event) {
 }
 
 
-// Q2 (COMPULSORY). Pizza Shop Form Validation
+// Q2 Pizza Shop Form Validation
 function handleSauceChange() {
     const sauceSelect = document.getElementById('pizzaSauce');
     const supremeTopping = document.getElementById('toppingSupreme');
 
-    // Validation b: If Tomato Pizza sauce is selected then the user cannot select Supreme Pizza toppings
+    // Validation If Tomato Pizza sauce is selected then the user cannot select Supreme Pizza toppings
     if (sauceSelect.value === "Tomato") {
         if (supremeTopping.checked) {
             supremeTopping.checked = false;
@@ -166,13 +165,13 @@ function handlePizzaSubmit(event) {
     const sauce = document.getElementById('pizzaSauce').value;
     const instructions = document.getElementById('deliveryInstructions').value.trim();
 
-    // Validation a: Name must be at least 5 characters
+    // Validation Name must be at least 5 characters
     if (name.length < 5) {
         alert("Validation Error: Name must be at least 5 characters long.");
         return;
     }
 
-    // Validation c: Delivery Instruction must have at least 5 words
+    // Validation Delivery Instruction must have at least 5 words
     const words = instructions.length > 0 ? instructions.split(/\s+/).filter(w => w.length > 0) : [];
     if (words.length < 5) {
         alert("Validation Error: Delivery Instructions must contain at least 5 words.");
@@ -200,11 +199,11 @@ function handlePizzaSubmit(event) {
     tbody.appendChild(row);
 
     document.getElementById('pizzaForm').reset();
-    handleSauceChange(); // Reset disabled state for Tomato
+    handleSauceChange(); 
 }
 
 
-// Q3 (COMPULSORY). Country, State, City Dynamic Cascading Select
+// Q3  Country, State, City Dynamic Cascading Select
 const locationData = {
     "India": {
         "Maharashtra": ["Mumbai", "Pune", "Nagpur"],
@@ -281,11 +280,10 @@ function onStateChange() {
 }
 
 
-// Q4 (COMPULSORY). Employee Objects & Global Tax Function
+// Q4 Employee Objects & Global Tax Function
 function globalTaxFunction() {
-    // Standard tax calculation based on context (this.salary)
     if (this && this.salary !== undefined) {
-        const taxAmount = this.salary * 0.15; // 15% tax
+        const taxAmount = this.salary * 0.15; 
         return `${this.name} (ID: ${this.id}) with salary $${this.salary} pays tax: $${taxAmount.toFixed(2)}`;
     } else {
         return "Global Call: 'this' does not point to an employee object (salary is undefined). Default Tax: 0";
