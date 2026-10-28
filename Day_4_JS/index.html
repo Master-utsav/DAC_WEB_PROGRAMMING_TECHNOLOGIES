@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Assignment 2</title>
+    <link rel="stylesheet" href="globals.css">
+</head>
+<body>
+    <h1>JavaScript Assignment - Advanced DOM & Validation</h1>
+
+    <!-- =================================================================== -->
+    <!-- SECTION A -->
+    <!-- =================================================================== -->
+    <section class="assignment-section">
+        <h2>Section A - Basic DOM & Form Operations</h2>
+
+        <!-- Question 1: Calculator -->
+        <div class="card">
+            <h3>Q1. Calculator (Input Boxes & Operations)</h3>
+            <div class="calc-box">
+                <input type="number" id="calcNum1" placeholder="Number 1">
+                <input type="number" id="calcNum2" placeholder="Number 2">
+                <div class="btn-group">
+                    <button onclick="calculate('+')">Add (+)</button>
+                    <button onclick="calculate('-')">Subtract (-)</button>
+                    <button onclick="calculate('*')">Multiply (*)</button>
+                    <button onclick="calculate('/')">Divide (/)</button>
+                    <button onclick="calculate('%')">Modulus (%)</button>
+                </div>
+                <div class="result" id="calcResult">Result: --</div>
+            </div>
+        </div>
+
+        <!-- Question 2: Friends List -->
+        <div class="card">
+            <h3>Q2. Friends Name List</h3>
+            <div class="input-inline">
+                <input type="text" id="friendNameInput" placeholder="Enter friend's name">
+                <button onclick="addFriend()">Add Friend</button>
+            </div>
+            <ul id="friendsList" class="styled-list"></ul>
+        </div>
+
+        <!-- Question 3 (COMPULSORY): Movies Table -->
+        <div class="card">
+            <h3>Q3. Movie Details Entry (COMPULSORY)</h3>
+            <div class="form-grid">
+                <input type="text" id="secAMovieName" placeholder="Movie Name">
+                <input type="number" id="secAMoviePrice" placeholder="Price">
+                <input type="text" id="secAMovieSeat" placeholder="Seat (e.g., A-12)">
+                <button onclick="addSecAMovie()">Add Movie (Need 3)</button>
+            </div>
+            <table id="secAMovieTable" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Movie Name</th>
+                        <th>Price (\$/₹)</th>
+                        <th>Seat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic Rows -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- SECTION B (ALL COMPULSORY) -->
+    <!-- =================================================================== -->
+    <section class="assignment-section">
+        <h2>Section B (All Questions Compulsory)</h2>
+
+        <!-- Question 1: Movie Validation Form -->
+        <div class="card">
+            <h3>Q1. Movie Validation Form (COMPULSORY)</h3>
+            <form id="movieValForm" onsubmit="handleMovieValSubmit(event)">
+                <div class="form-group">
+                    <label>Movie Name (min 5 chars):</label>
+                    <input type="text" id="valMovieName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Actor Name (min 3 chars):</label>
+                    <input type="text" id="valActor" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Release Date:</label>
+                    <input type="date" id="valRelease" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Movie Type (Checkbox):</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="movieType" value="2D"> 2D</label>
+                        <label><input type="checkbox" name="movieType" value="3D"> 3D</label>
+                        <label><input type="checkbox" name="movieType" value="IMAX"> IMAX</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Language (Radio Button):</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="language" value="English" checked> English</label>
+                        <label><input type="radio" name="language" value="Hindi"> Hindi</label>
+                        <label><input type="radio" name="language" value="Spanish"> Spanish</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Show Time:</label>
+                    <input type="datetime-local" id="valShowTime" required>
+                </div>
+
+                <button type="submit">Submit & Validate Movie</button>
+            </form>
+
+            <table id="validatedMovieTable" class="data-table" style="margin-top: 15px;">
+                <thead>
+                    <tr>
+                        <th>Movie Name</th>
+                        <th>Actor</th>
+                        <th>Release</th>
+                        <th>Type</th>
+                        <th>Language</th>
+                        <th>Show Time</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- Question 2: Pizza Shop Form -->
+        <div class="card">
+            <h3>Q2. Pizza Shop 2.0 (COMPULSORY)</h3>
+            <form id="pizzaForm" onsubmit="handlePizzaSubmit(event)">
+                <table class="pizza-form-table">
+                    <tr>
+                        <th colspan="2" class="pizza-header">Pizza Shop 2.0</th>
+                    </tr>
+                    <tr>
+                        <td><label for="pizzaName">Name</label></td>
+                        <td><input type="text" id="pizzaName" required></td>
+                    </tr>
+                    <tr>
+                        <td>Pizza Topping</td>
+                        <td>
+                            <label><input type="radio" name="pizzaTopping" value="Supreme" id="toppingSupreme"> Supreme</label><br>
+                            <label><input type="radio" name="pizzaTopping" value="Vegetarian"> Vegetarian</label><br>
+                            <label><input type="radio" name="pizzaTopping" value="Hawaiian"> Hawaiian</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="pizzaSauce">Pizza Sauce</label></td>
+                        <td>
+                            <select id="pizzaSauce" onchange="handleSauceChange()">
+                                <option value="Tomato">Tomato</option>
+                                <option value="BBQ">BBQ</option>
+                                <option value="White">White</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Optional Extras</td>
+                        <td>
+                            <label><input type="checkbox" name="pizzaExtras" value="Extra Cheese"> Extra Cheese</label>
+                            <label><input type="checkbox" name="pizzaExtras" value="Gluten Free Base"> Gluten Free Base</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="deliveryInstructions">Delivery Instructions:</label><br>
+                            <textarea id="deliveryInstructions" rows="4"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit">Send my Order</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            <table id="pizzaOrdersTable" class="data-table" style="margin-top: 15px;">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Topping</th>
+                        <th>Sauce</th>
+                        <th>Extras</th>
+                        <th>Instructions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- Question 3: Cascading Dropdowns -->
+        <div class="card">
+            <h3>Q3. Dynamic Country / State / City Select (COMPULSORY)</h3>
+            <div class="dropdown-group">
+                <div>
+                    <label>Country:</label>
+                    <select id="countrySelect" onchange="onCountryChange()">
+                        <option value="">-- Select Country --</option>
+                    </select>
+                </div>
+                <div>
+                    <label>State:</label>
+                    <select id="stateSelect" onchange="onStateChange()" disabled>
+                        <option value="">-- Select State --</option>
+                    </select>
+                </div>
+                <div>
+                    <label>City:</label>
+                    <select id="citySelect" disabled>
+                        <option value="">-- Select City --</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 4: Object & Context Test -->
+        <div class="card">
+            <h3>Q4. Employee Objects & Global Tax Function Test (COMPULSORY)</h3>
+            <p>Check the browser console (F12) for detailed logs, or click the button below to re-run execution:</p>
+            <button onclick="runEmployeeTaxTest()">Run Tax Function Test</button>
+            <div id="taxTestOutput" class="output-box" style="margin-top: 10px;"></div>
+        </div>
+    </section>
+
+    <script src="index.js"></script>
+</body>
+</html>
